@@ -24,8 +24,6 @@ const CardDescription = ({ className, ...props }: React.HTMLAttributes<HTMLParag
 	<p className={twMerge("text-sm text-slate-500 dark:text-slate-400", className)} {...props} />
 )
 
-CardDescription.displayName = "CardDescription"
-
 const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
 	<div className={twMerge("p-6 pt-0", className)} {...props} />
 )
@@ -36,6 +34,7 @@ const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
 
 Card.Header = CardHeader
 Card.Title = CardTitle
+Card.Description = CardDescription
 Card.Content = CardContent
 Card.Footer = CardFooter
 

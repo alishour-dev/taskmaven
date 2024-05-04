@@ -1,19 +1,23 @@
 //#region Import
 import Button from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Link } from "react-router-dom"
+import Card from "@/components/ui/card"
+import Input from "@/components/ui/input"
+import Label from "@/components/ui/label"
+import useDispatch from "@/hooks/useDispatch"
+
+import { toggleAuth } from "../slice"
 //#endregion
 
-export function LoginForm() {
+const SignupForm = () => {
+	const dispatch = useDispatch()
+
 	return (
 		<Card className='mx-auto max-w-sm'>
-			<CardHeader>
-				<CardTitle className='text-xl'>Sign Up</CardTitle>
-				<CardDescription>Enter your information to create an account</CardDescription>
-			</CardHeader>
-			<CardContent>
+			<Card.Header>
+				<Card.Title className='text-xl'>Sign Up</Card.Title>
+				<Card.Description>Enter your information to create an account</Card.Description>
+			</Card.Header>
+			<Card.Content>
 				<div className='grid gap-4'>
 					<div className='grid grid-cols-2 gap-4'>
 						<div className='grid gap-2'>
@@ -42,11 +46,13 @@ export function LoginForm() {
 				</div>
 				<div className='mt-4 text-center text-sm'>
 					Already have an account?{" "}
-					<Link className='underline' to='#'>
+					<Button className='underline' onClick={() => dispatch(toggleAuth(true))} variant='link'>
 						Sign in
-					</Link>
+					</Button>
 				</div>
-			</CardContent>
+			</Card.Content>
 		</Card>
 	)
 }
+
+export default SignupForm

@@ -3,11 +3,13 @@ import Breadcrumb from "@/components/ui/breadcrumb"
 import Button from "@/components/ui/button"
 import DropdownMenu from "@/components/ui/dropdown-menu"
 import Input from "@/components/ui/input"
-import { File, ListFilter, PlusCircle, Search } from "lucide-react"
-import { Link } from "react-router-dom"
+import LucideCirclePlus from "~icons/lucide/circle-plus"
+import LucideListFilter from "~icons/lucide/list-filter"
+import LucideSearch from "~icons/lucide/search"
+import { Link, Outlet } from "react-router-dom"
 //#endregion
 
-const PrivateLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+const PrivateLayout = () => {
 	return (
 		<div className='bg-muted/40 flex min-h-screen w-full flex-col'>
 			<div className='flex flex-col sm:gap-4 sm:py-4 sm:pl-14'>
@@ -57,7 +59,7 @@ const PrivateLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 				<main className='grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8'>
 					<div className='flex items-center'>
 						<div className='relative ml-auto flex-1 md:grow-0'>
-							<Search className='text-muted-foreground absolute left-2.5 top-2.5 h-4 w-4' />
+							<LucideSearch className='text-muted-foreground absolute left-2.5 top-2.5 h-4 w-4' />
 							<Input
 								className='bg-background w-full rounded-lg pl-8 md:w-[200px] lg:w-[336px]'
 								placeholder='Search...'
@@ -69,7 +71,7 @@ const PrivateLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 							<DropdownMenu>
 								<DropdownMenu.Trigger asChild>
 									<Button className='h-8 gap-1' size='sm' variant='outline'>
-										<ListFilter className='h-3.5 w-3.5' />
+										<LucideListFilter className='h-3.5 w-3.5' />
 										<span className='sr-only sm:not-sr-only sm:whitespace-nowrap'>Filter</span>
 									</Button>
 								</DropdownMenu.Trigger>
@@ -81,18 +83,15 @@ const PrivateLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 									<DropdownMenu.CheckboxItem>Archived</DropdownMenu.CheckboxItem>
 								</DropdownMenu.Content>
 							</DropdownMenu>
-							<Button className='h-8 gap-1' size='sm' variant='outline'>
-								<File className='h-3.5 w-3.5' />
-								<span className='sr-only sm:not-sr-only sm:whitespace-nowrap'>Export</span>
-							</Button>
+
 							<Button className='h-8 gap-1' size='sm'>
-								<PlusCircle className='h-3.5 w-3.5' />
+								<LucideCirclePlus className='h-3.5 w-3.5' />
 								<span className='sr-only sm:not-sr-only sm:whitespace-nowrap'>Add Product</span>
 							</Button>
 						</div>
 					</div>
 
-					{children}
+					<Outlet />
 				</main>
 			</div>
 		</div>
