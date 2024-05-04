@@ -1,7 +1,7 @@
 //#region Import
 import type { RouteObject } from "react-router-dom"
 
-import AuthRoute from "@/features/auth/routes/auth"
+import AuthRoute from "@/features/auth/routes/auth-route"
 //#endregion
 
 /**

@@ -1,24 +1,29 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable perfectionist/sort-objects*/
 
+//#region Import
 import type { RouteObject } from "react-router-dom"
 
-//#region Import
 import PrivateLayout from "@/components/layouts/private-layout"
 import { lazy } from "react"
 
-// eslint-disable-next-line react-refresh/only-export-components
 const NotFoundError = lazy(() => import("@/components/common/not-found-error"))
+
+const TasksRoute = lazy(() => import("@/features/tasks/routes/tasks-route"))
+
+const TaskRoute = lazy(() => import("@/features/tasks/routes/task-route"))
 //#endregion
 
 /**
- * @description A List of Private-Only Route Objects (routes)  accessible only by authenticated users
+ * List of Private-Only Route Objects (routes) accessible only by authenticated users
  */
 const privateRoutes: RouteObject[] = [
 	{
 		path: "/",
 		element: <PrivateLayout />,
 		children: [
-			{ element: <div>Main Route Here!</div>, path: "tasks" },
+			{ element: <TasksRoute />, path: "tasks" },
+			{ element: <TaskRoute />, path: "tasks/:taskId" },
 
 			// FALLBACK - 404 IF ROUTE DOES NOT EXIST
 			{ element: <NotFoundError />, path: "*" },
