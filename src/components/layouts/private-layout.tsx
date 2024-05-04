@@ -1,12 +1,11 @@
 //#region Import
-import Breadcrumb from "@/components/ui/breadcrumb"
 import Button from "@/components/ui/button"
 import DropdownMenu from "@/components/ui/dropdown-menu"
 import Input from "@/components/ui/input"
 import LucideCirclePlus from "~icons/lucide/circle-plus"
 import LucideListFilter from "~icons/lucide/list-filter"
 import LucideSearch from "~icons/lucide/search"
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 //#endregion
 
 const PrivateLayout = () => {
@@ -14,25 +13,9 @@ const PrivateLayout = () => {
 		<div className='bg-muted/40 flex min-h-screen w-full flex-col'>
 			<div className='flex flex-col sm:gap-4 sm:py-4 sm:pl-14'>
 				<header className='bg-background sticky top-0 z-30 flex h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6'>
-					<Breadcrumb className='hidden md:flex'>
-						<Breadcrumb.List>
-							<Breadcrumb.Item>
-								<Breadcrumb.Link asChild>
-									<Link to='#'>Dashboard</Link>
-								</Breadcrumb.Link>
-							</Breadcrumb.Item>
-							<Breadcrumb.Separator />
-							<Breadcrumb.Item>
-								<Breadcrumb.Link asChild>
-									<Link to='#'>Products</Link>
-								</Breadcrumb.Link>
-							</Breadcrumb.Item>
-							<Breadcrumb.Separator />
-							<Breadcrumb.Item>
-								<Breadcrumb.Page>All Products</Breadcrumb.Page>
-							</Breadcrumb.Item>
-						</Breadcrumb.List>
-					</Breadcrumb>
+					<h1 className='bg-gradient-to-r from-blue-700 to-pink-600 bg-clip-text text-3xl font-black text-transparent'>
+						TaskMaven
+					</h1>
 
 					<DropdownMenu>
 						<DropdownMenu.Trigger asChild>
