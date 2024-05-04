@@ -1,7 +1,8 @@
 //#region Import
 import type { Database } from "@/lib/supabase/schema"
 
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react"
+import useSelector from "@/hooks/useSelector"
+import { useSupabaseClient } from "@supabase/auth-helpers-react"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 
@@ -10,7 +11,7 @@ import TaskItem from "./task-item"
 //#endregion
 
 const TasksList = () => {
-	const session = useSession()
+	const user = useSelector(({ auth }) => auth.user!)
 
 	const supabase = useSupabaseClient<Database>()
 
@@ -19,8 +20,6 @@ const TasksList = () => {
 	const [newTaskText, setNewTaskText] = useState("")
 
 	const [errorText, setErrorText] = useState("")
-
-	const user = session!.user
 
 	useEffect(() => {
 		const fetchTodos = async () => {

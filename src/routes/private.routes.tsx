@@ -2,12 +2,9 @@
 /* eslint-disable perfectionist/sort-objects*/
 
 //#region Import
-import type { RouteObject } from "react-router-dom"
-
 import PrivateLayout from "@/components/layouts/private-layout"
 import { lazy } from "react"
-
-const NotFoundError = lazy(() => import("@/components/common/not-found-error"))
+import { Navigate, type RouteObject } from "react-router-dom"
 
 const TasksRoute = lazy(() => import("@/features/tasks/routes/tasks-route"))
 
@@ -25,8 +22,8 @@ const privateRoutes: RouteObject[] = [
 			{ element: <TasksRoute />, path: "tasks" },
 			{ element: <TaskRoute />, path: "tasks/:taskId" },
 
-			// FALLBACK - 404 IF ROUTE DOES NOT EXIST
-			{ element: <NotFoundError />, path: "*" },
+			// FALLBACK - Redirect IF ROUTE DOES NOT EXIST
+			{ element: <Navigate to='/tasks' />, path: "*" },
 		],
 	},
 ]

@@ -2,9 +2,9 @@
 import { createClient } from "@supabase/supabase-js"
 //#endregion
 
-const supabaseUrl = import.meta.env.SUPABASE_URL
+const supabaseUrl = import.meta.env.VITE_APP_SUPABASE_URL
 
-const supabaseKey = import.meta.env.SUPABASE_KEY
+const supabaseKey = import.meta.env.VITE_APP_SUPABASE_KEY
 
 const supabaseClient = createClient(supabaseUrl, supabaseKey)
 

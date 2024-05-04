@@ -2,20 +2,23 @@
 import Button from "@/components/ui/button"
 import DropdownMenu from "@/components/ui/dropdown-menu"
 import Input from "@/components/ui/input"
+import { useAuth } from "@/providers/auth-provider"
 import LucideCirclePlus from "~icons/lucide/circle-plus"
 import LucideListFilter from "~icons/lucide/list-filter"
 import LucideSearch from "~icons/lucide/search"
 import { Outlet } from "react-router-dom"
+
+import Logo from "../common/logo"
 //#endregion
 
 const PrivateLayout = () => {
+	const { signOut } = useAuth()
+
 	return (
 		<div className='bg-muted/40 flex min-h-screen w-full flex-col'>
 			<div className='flex flex-col sm:gap-4 sm:py-4 sm:pl-14'>
-				<header className='bg-background sticky top-0 z-30 flex h-14 items-center gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6'>
-					<h1 className='bg-gradient-to-r from-blue-700 to-pink-600 bg-clip-text text-3xl font-black text-transparent'>
-						TaskMaven
-					</h1>
+				<header className='bg-background sticky top-0 z-30 flex h-14 items-center justify-between gap-4 border-b px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6'>
+					<Logo />
 
 					<DropdownMenu>
 						<DropdownMenu.Trigger asChild>
@@ -24,7 +27,7 @@ const PrivateLayout = () => {
 									alt='Avatar'
 									className='overflow-hidden rounded-full'
 									height={36}
-									src='/placeholder-user.jpg'
+									src='https://th.bing.com/th/id/R.898a454aed8eda454fd4ea6d11d27ebb?rik=KxVePyS8%2bDRP%2bA&pid=ImgRaw&r=0'
 									width={36}
 								/>
 							</Button>
@@ -35,7 +38,7 @@ const PrivateLayout = () => {
 							<DropdownMenu.Item>Settings</DropdownMenu.Item>
 							<DropdownMenu.Item>Support</DropdownMenu.Item>
 							<DropdownMenu.Separator />
-							<DropdownMenu.Item>Logout</DropdownMenu.Item>
+							<DropdownMenu.Item onClick={signOut}>Logout</DropdownMenu.Item>
 						</DropdownMenu.Content>
 					</DropdownMenu>
 				</header>
@@ -69,7 +72,7 @@ const PrivateLayout = () => {
 
 							<Button className='h-8 gap-1' size='sm'>
 								<LucideCirclePlus className='h-3.5 w-3.5' />
-								<span className='sr-only sm:not-sr-only sm:whitespace-nowrap'>Add Product</span>
+								<span className='sr-only sm:not-sr-only sm:whitespace-nowrap'>Add Task</span>
 							</Button>
 						</div>
 					</div>
