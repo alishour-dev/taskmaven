@@ -44,6 +44,10 @@ const config: Config = {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
+			colors: {
+				primary: "#22d3ee",
+				secondary: "#020617",
+			},
 			keyframes: {
 				"accordion-down": {
 					from: { height: "0" },

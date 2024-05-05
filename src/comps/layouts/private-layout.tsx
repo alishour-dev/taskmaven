@@ -1,7 +1,7 @@
 //#region Import
-import Button from "@/components/ui/button"
-import DropdownMenu from "@/components/ui/dropdown-menu"
-import Input from "@/components/ui/input"
+import Button from "@/comps/ui/button"
+import DropdownMenu from "@/comps/ui/dropdown-menu"
+import Input from "@/comps/ui/input"
 import { useAuth } from "@/providers/auth-provider"
 import LucideCirclePlus from "~icons/lucide/circle-plus"
 import LucideListFilter from "~icons/lucide/list-filter"

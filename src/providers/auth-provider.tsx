@@ -1,7 +1,7 @@
 //#region Import
 import type { User } from "@supabase/supabase-js"
 
-import AppLoader from "@/components/common/app-loader"
+import AppLoader from "@/comps/common/app-loader"
 import supabaseClient from "@/lib/supabase/supabase-client"
 import { createContext, useContext, useEffect, useState } from "react"
 //#endregion

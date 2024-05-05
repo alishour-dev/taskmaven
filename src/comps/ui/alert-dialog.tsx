@@ -1,5 +1,5 @@
 //#region Import
-import { buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/comps/ui/button"
 import {
 	Action,
 	AlertDialogPortal,
