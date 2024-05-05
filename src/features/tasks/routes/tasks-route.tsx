@@ -1,9 +1,5 @@
 const TasksRoute = () => {
-	return (
-		<div>
-			<div>Tasks Route</div>
-		</div>
-	)
+	return <div>Tasks Route</div>
 }
 
 export default TasksRoute

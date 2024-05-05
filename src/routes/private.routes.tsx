@@ -2,7 +2,7 @@
 /* eslint-disable perfectionist/sort-objects*/
 
 //#region Import
-import PrivateLayout from "@/comps/layouts/private-layout"
+import PrivateLayout from "@/comps/private-layout/private-layout"
 import { lazy } from "react"
 import { Navigate, type RouteObject } from "react-router-dom"
 
