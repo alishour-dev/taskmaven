@@ -1,7 +1,5 @@
 //#region Import
-import type { Database } from "@/lib/supabase/schema"
-
-import { useSupabaseClient } from "@supabase/auth-helpers-react"
+import supabaseClient from "@/lib/supabase/supabase-client"
 import { useState } from "react"
 
 import type { Task } from "../types"
@@ -13,13 +11,11 @@ interface TaskItemProps {
 }
 
 const TaskItem = ({ onDelete, task }: TaskItemProps) => {
-	const supabase = useSupabaseClient<Database>()
-
 	const [isCompleted, setIsCompleted] = useState(task.is_complete)
 
 	const toggle = async () => {
 		try {
-			const { data } = await supabase
+			const { data } = await supabaseClient
 				.from("tasks")
 				.update({ is_complete: !isCompleted })
 				.eq("id", task.id)
@@ -40,12 +36,7 @@ const TaskItem = ({ onDelete, task }: TaskItemProps) => {
 					<div className='truncate text-sm font-medium leading-5'>{task.task}</div>
 				</div>
 				<div>
-					<input
-						checked={isCompleted ? true : false}
-						className='cursor-pointer'
-						onChange={() => toggle()}
-						type='checkbox'
-					/>
+					<input checked={isCompleted ? true : false} className='cursor-pointer' onChange={toggle} type='checkbox' />
 				</div>
 				<button
 					className='ml-2 h-4 w-4 rounded border-2 hover:border-black'

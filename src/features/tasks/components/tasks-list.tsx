@@ -1,19 +1,16 @@
 //#region Import
-import type { Database } from "@/lib/supabase/schema"
-
-import useSelector from "@/hooks/useSelector"
-import { useSupabaseClient } from "@supabase/auth-helpers-react"
+import supabaseClient from "@/lib/supabase/supabase-client"
+import { useAuth } from "@/providers/auth-provider"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 
-import { Task } from "../types"
+import type { Task } from "../types"
+
 import TaskItem from "./task-item"
 //#endregion
 
 const TasksList = () => {
-	const user = useSelector(({ auth }) => auth.user!)
-
-	const supabase = useSupabaseClient<Database>()
+	const { user } = useAuth()
 
 	const [tasks, setTasks] = useState<Task[]>([])
 
@@ -23,14 +20,14 @@ const TasksList = () => {
 
 	useEffect(() => {
 		const fetchTodos = async () => {
-			const { data: tasks, error } = await supabase.from("tasks").select("*").order("id", { ascending: true })
+			const { data: tasks, error } = await supabaseClient.from("tasks").select("*").order("id", { ascending: true })
 
 			if (error) console.log("error", error)
 			else setTasks(tasks)
 		}
 
 		fetchTodos()
-	}, [supabase])
+	}, [])
 
 	const addTask = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -38,7 +35,11 @@ const TasksList = () => {
 		const task = newTaskText.trim()
 
 		if (task.length) {
-			const { data: newTask, error } = await supabase.from("tasks").insert({ task, user_id: user.id }).select().single()
+			const { data: newTask, error } = await supabaseClient
+				.from("tasks")
+				.insert({ task, user_id: user!.id })
+				.select()
+				.single()
 
 			if (error) {
 				setErrorText(error.message)
@@ -51,7 +52,7 @@ const TasksList = () => {
 
 	const deleteTask = async (id: number) => {
 		try {
-			await supabase.from("tasks").delete().eq("id", id).throwOnError()
+			await supabaseClient.from("tasks").delete().eq("id", id).throwOnError()
 			setTasks((prev) => prev.filter((i) => i.id != id))
 		} catch (error) {
 			console.log("error", error)
