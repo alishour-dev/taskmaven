@@ -10,12 +10,12 @@ import Lamp from "../comps/lamp"
 const AuthRoute = () => {
 	return (
 		<div className='relative min-h-screen w-full lg:grid lg:min-h-screen lg:grid-cols-[auto_60%]'>
-			<div className='bg-primary relative min-h-screen w-full flex-center' style={{ backgroundImage }}>
+			<div className='relative min-h-screen w-full bg-primary flex-center' style={{ backgroundImage }}>
 				<Logo className='absolute start-8 top-8' />
 
-				<div className='bg-primary/5 rounded-[40px] rounded-bl-none rounded-tr-none px-8 pb-8 ring-2 ring-[#b6f0f9]/80 backdrop-blur-sm'>
+				<div className='rounded-[40px] rounded-bl-none rounded-tr-none bg-primary/5 px-8 pb-8 ring-2 ring-[#b6f0f9]/80 backdrop-blur-sm'>
 					<div className='pb-6 pt-10'>
-						<h1 className='text-secondary text-4xl font-light'>Getting Started</h1>
+						<h1 className='text-4xl font-light text-secondary'>Getting Started</h1>
 					</div>
 
 					<Auth appearance={baseAppearance} providers={[]} supabaseClient={supabaseClient} />

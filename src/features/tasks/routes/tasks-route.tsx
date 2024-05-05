@@ -1,5 +1,7 @@
+import TasksList from "../components/tasks-list"
+
 const TasksRoute = () => {
-	return <div>Tasks Route</div>
+	return <TasksList />
 }
 
 export default TasksRoute
