@@ -3,7 +3,7 @@ import { m } from "framer-motion"
 //#endregion
 
 const Lamp = () => (
-	<div className='relative z-0 min-h-screen w-full flex-col overflow-hidden rounded-s-3xl bg-slate-950 flex-center'>
+	<div className='relative z-0 hidden min-h-screen w-full flex-col overflow-hidden rounded-s-3xl bg-slate-950 lg:flex-center'>
 		<div className='relative isolate z-0 flex w-full flex-1 scale-y-125 items-center justify-center '>
 			<m.div
 				className='bg-gradient-conic absolute inset-auto right-1/2 h-56 w-[30rem] overflow-visible from-cyan-500 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]'

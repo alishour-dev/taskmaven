@@ -23,8 +23,6 @@ const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 	useEffect(() => {
 		const { data: listener } = supabaseClient.auth.onAuthStateChange((_event, session) => {
-			console.log("Session is: ", session)
-
 			setUser(session?.user || null)
 			setLoading(false)
 		})

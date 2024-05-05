@@ -13,7 +13,7 @@ import Header from "./header"
 const PrivateLayout = () => {
 	return (
 		<div className='flex min-h-screen w-screen p-8'>
-			<div className='flex flex-1 flex-col rounded-xl bg-white p-8 sm:gap-8'>
+			<div className='flex flex-1 flex-col rounded-xl bg-white/70 p-8 backdrop-blur-lg sm:gap-8'>
 				<Header />
 
 				<main className='flex flex-1 flex-col gap-4 md:gap-8'>
