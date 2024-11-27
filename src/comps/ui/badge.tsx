@@ -6,10 +6,10 @@ import { twMerge } from "tailwind-merge"
 const badgeVariants = cva(
 	"inline-flex items-center rounded-full border border-slate-200 px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:border-slate-800 dark:focus:ring-slate-300",
 	{
-		defaultVariants: {
+								defaultVariants: {
 			variant: "default",
 		},
-		variants: {
+			variants: {
 			variant: {
 				default:
 					"border-transparent bg-slate-900 text-slate-50 hover:bg-slate-900/80 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/80",
@@ -25,8 +25,8 @@ const badgeVariants = cva(
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
-	return <div className={twMerge(badgeVariants({ variant }), className)} {...props} />
-}
+const Badge = ({ className, variant, ...props }: BadgeProps) => (
+	<div className={twMerge(badgeVariants({ variant }), className)} {...props} />
+)
 
 export default Badge
